@@ -20,6 +20,6 @@
 
 int main()
 {
-    MinesweeperBoard m {  9, 5, HARD};
+    MinesweeperBoard m { 10, 10, DEBUG };
     m.debug_display();
 }
