@@ -27,17 +27,22 @@ class MinesweeperBoard {
     int width;
     int height;
     int bomb;
-
+    GameState state;
+    GameMode mode;
+    bool first_move; //sprawdza czy gracz juz sie ruszyl
     //  MinesweeperBoard();
     void clear_board();
     void minowanie(GameMode mode);
     int iloscBomb(GameMode mode) const;
     bool is_NOT_on_board(int row, int col) const;
+    void move_mine(int row, int col); 
+    
+    
 
 
 public:
   //  MinesweeperBoard(int width, int height, GameMode mode);
-    void debug_display() const;
+    
    
 // generate a width*height sized board with the number of mines that depend on GameMode:
   // - EASY   - 10% of game fields with mines (random)
@@ -48,7 +53,7 @@ public:
   // NOTE: You may assume, that width and height are not larger than 100
   // HINT: It is OK to allocate 100x100 board and only use part of it 
   MinesweeperBoard(int width, int height, GameMode mode ); 
-
+  void debug_display() const;
   // simple getters - return appropriate values (passed to or calculated in constructor)
   int getBoardWidth() const;
   int getBoardHeight() const;
