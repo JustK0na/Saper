@@ -35,8 +35,17 @@ add_compile_options ( -Wcast-qual )
 add_compile_options ( -Wmaybe-uninitialized )
 
 
+find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
+
 file(GLOB SRC CONFIGURE_DEPENDS src/*.cpp)
 add_executable(main ${SRC})
+
+##add_executable(Minesweeper.cpp ${SRC})
+##add_executable(MSBoardTextView.cpp ${SRC})
+##add_executable(MSTextController.cpp ${SRC})
+
+target_link_libraries(main sfml-graphics)
+
 
 add_custom_target(
 	copy-compile-commands ALL
@@ -44,3 +53,4 @@ add_custom_target(
 	${CMAKE_BINARY_DIR}/compile_commands.json
 	${CMAKE_CURRENT_LIST_DIR}
 )
+

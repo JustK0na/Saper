@@ -1,5 +1,6 @@
 #include "Array2D.h"
 #include "MinesweeperBoard.h"
+
 #include <cstdio>
 #include <cstdlib>
 #include <cwchar>
@@ -21,15 +22,16 @@
   Board[0][2].hasMine=1;
   Board[0][2].hasFlag=1;
 }*/
-MinesweeperBoard::MinesweeperBoard(int collumns, int rows, GameMode mode)
+MinesweeperBoard::MinesweeperBoard(int collumns, int rows, GameMode method)
 {
     width = collumns;
     height = rows;
+    mode = method;
     clear_board();
     bomb = iloscBomb(mode);
     minowanie(mode);
     state = RUNNING;
-    first_move = false;
+    first_move = 0;
 }
 int MinesweeperBoard::getBoardHeight() const
 {
@@ -42,6 +44,10 @@ int MinesweeperBoard::getBoardWidth() const
 int MinesweeperBoard::getMineCount() const
 {
     return bomb;
+}
+bool MinesweeperBoard::is_first_move()
+{
+    return first_move;
 }
 bool MinesweeperBoard::is_NOT_on_board(int row, int col) const
 {
@@ -65,13 +71,14 @@ int MinesweeperBoard::countMines(int row, int col) const
     if (is_NOT_on_board(row, col))
         return -1;
     int tmpCounter = 0;
-    if (Board[row][col].isRevealed)
+    if (!Board[row][col].isRevealed)
         return -1;
 
     for (int i = (row - 1); i <= (row + 1); i++)
         for (int j = (col - 1); j <= (col + 1); j++) {
-            if (Board[i][j].hasMine)
-                tmpCounter++;
+            if (!is_NOT_on_board(i, j))
+                if (Board[i][j].hasMine)
+                    tmpCounter++;
         }
     return tmpCounter;
 }
@@ -85,7 +92,22 @@ bool MinesweeperBoard::hasFlag(int row, int col) const
 
     return Board[row][col].hasFlag;
 }
-
+void MinesweeperBoard::WIN_check()
+{
+    std::cout << "\n SPrawdzam czy wygrales" << getGameState();
+    for (int i = 0; i <= getBoardWidth(); i++) {
+        for (int j = 0; j <= getBoardHeight(); j++) {
+            if (Board[i][j].isRevealed == 0 && Board[i][j].hasFlag == 0) {
+                std::cout << i << "\t" << j << "\n"
+                          << Board[i][j].isRevealed << " " << Board[i][j].hasFlag << "\n\n";
+                return;
+            }
+        }
+    }
+    state = FINISHED_WIN;
+    std::cout << "\n wygrales!";
+    return;
+}
 GameState MinesweeperBoard::getGameState() const
 {
     return state;
@@ -100,24 +122,28 @@ void MinesweeperBoard::toggleFlag(int row, int col)
     if (getGameState() == FINISHED_LOSS || getGameState() == FINISHED_WIN)
         return;
 
-    if (!(Board[row][col].isRevealed)) //Tego nie potrzeba bo poprzedni if sprawdza
-        //odwrotny stan (chyba)
+    if (Board[row][col].hasFlag == 0) {
         Board[row][col].hasFlag = 1;
+        bomb--;
+        return;
+    }
+
+    Board[row][col].hasFlag = 0;
+    bomb++;
 }
 void MinesweeperBoard::move_mine(int row, int col)
 {
-    int tmprow = row;
-    int tmpcol = col;
-
-    while (Board[tmprow][tmpcol].hasMine == 1) {
-        if (is_NOT_on_board(tmprow + 1, tmpcol + 1)) {
-            tmprow = 0;
-            tmpcol = 0;
+    int i;
+    int j;
+    for (i = 0; i < height; i++) {
+        for (j = 0; j < width; j++) {
+            if (Board[i][j].hasMine == 0) {
+                Board[i][j].hasMine = 1;
+                Board[row][col].hasMine = 0;
+                return;
+            }
         }
-        tmprow++;
-        tmpcol++;
     }
-    Board[tmprow][tmpcol].hasMine = 1;
 }
 void MinesweeperBoard::revealField(int row, int col)
 {
@@ -130,17 +156,27 @@ void MinesweeperBoard::revealField(int row, int col)
     if (Board[row][col].hasFlag == 1)
         return;
 
-    if (Board[row][col].hasMine == 0)
+    if (Board[row][col].hasMine == 0) {
         Board[row][col].isRevealed = 1;
-
-    if (first_move == 1) //gracz juz się ruszył
-    {
-        Board[row][col].isRevealed = 1;
-        state = FINISHED_LOSS;
-    } else if (first_move == 0 && mode != DEBUG) //to pierwszy ruch gracza
-    {
+        first_move = 1;
+        WIN_check();
+        return;
+    }
+    if (Board[row][col].hasMine == 1) {
+        if (first_move == 1) //gracz się już wcześniej ruszył
+        {
+            Board[row][col].isRevealed = 1;
+            state = FINISHED_LOSS;
+            return;
+        }
+        if (mode == DEBUG) {
+            Board[row][col].isRevealed = 1;
+            std::cout << "\nDEBUG\n";
+            return;
+        }
         move_mine(row, col);
         Board[row][col].isRevealed = 1;
+        first_move = 1;
     }
 }
 bool MinesweeperBoard::isRevealed(int row, int col) const
@@ -167,7 +203,7 @@ char MinesweeperBoard::getFieldInfo(int row, int col) const
         return ' ';
     if (Board[row][col].isRevealed == 1 && countMines(row, col) != 0) {
         char number;
-        number = (countMines(row, col) + 30);
+        number = (countMines(row, col) + 48);
         return number;
     }
 
@@ -195,6 +231,7 @@ int MinesweeperBoard::iloscBomb(GameMode mode) const
 }
 void MinesweeperBoard::minowanie(GameMode mode)
 {
+    //Zamienic na losowanie koordynatow, dlaczego debug jest z innymi f-cjami?
     std::srand(time(NULL));
     int bomby = bomb;
     while (bomby > 0) {
@@ -232,7 +269,6 @@ void MinesweeperBoard::minowanie(GameMode mode)
         }
     }
 }
-
 void MinesweeperBoard::debug_display() const
 {
 
