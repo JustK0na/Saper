@@ -29,21 +29,6 @@ int main()
     MSTextController ctrl(m, view);
     MSBoardSFMLView window(m);
 
-    /* view.display();
-
-    m.revealField(1, 0);
-    m.toggleFlag(4, 4);
-    // m.revealField(1, 1);
-    m.revealField(1, 2);
-    m.revealField(1, 3);
-    m.revealField(1, 4);
-    m.revealField(1, 5);
-    m.revealField(3, 8);
-    m.revealField(3, 9);
-
-    view.display();
-    m.debug_display();*/
-
     while (win.isOpen()) {
         sf::Event event;
         while (win.pollEvent(event)) {

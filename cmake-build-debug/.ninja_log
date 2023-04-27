@@ -1,0 +1,26 @@
+# ninja log v5
+3	29	0	C:/Users/Admin/CLionProjects/Saper/cmake-build-debug/CMakeFiles/cmake.verify_globs	2d49975e4f2b802d
+0	580	7042283221890264	CMakeFiles/main.dir/src/MSBoardTextView.cpp.obj	64c6646d5c82a886
+11	583	7042283221890264	CMakeFiles/main.dir/src/MSTextController.cpp.obj	6848861424e02d2f
+4	597	7042283222065607	CMakeFiles/main.dir/src/MSFMLview.cpp.obj	ffdf542f1d844657
+8	609	7042283222190325	CMakeFiles/main.dir/src/main.cpp.obj	117aa45ee68580ec
+15	647	7042283222577906	CMakeFiles/main.dir/src/Minesweeper.cpp.obj	d49478a674d8ea05
+647	729	7042283223362971	main.exe	fdfc5e070c645aad
+1	16	0	C:/Users/Admin/CLionProjects/Saper/cmake-build-debug/CMakeFiles/cmake.verify_globs	2d49975e4f2b802d
+1	15	0	C:/Users/Admin/CLionProjects/Saper/cmake-build-debug/CMakeFiles/cmake.verify_globs	2d49975e4f2b802d
+2	23	0	C:/Users/Admin/CLionProjects/Saper/cmake-build-debug/CMakeFiles/cmake.verify_globs	2d49975e4f2b802d
+3	344	7042284976288120	CMakeFiles/main.dir/src/MSFMLview.cpp.obj	ffdf542f1d844657
+345	430	7042284977088861	main.exe	fdfc5e070c645aad
+2	17	0	C:/Users/Admin/CLionProjects/Saper/cmake-build-debug/CMakeFiles/cmake.verify_globs	2d49975e4f2b802d
+1	16	0	C:/Users/Admin/CLionProjects/Saper/cmake-build-debug/CMakeFiles/cmake.verify_globs	2d49975e4f2b802d
+2	292	7042285312390824	CMakeFiles/main.dir/src/MSFMLview.cpp.obj	ffdf542f1d844657
+292	366	7042285313103456	main.exe	fdfc5e070c645aad
+2	18	0	C:/Users/Admin/CLionProjects/Saper/cmake-build-debug/CMakeFiles/cmake.verify_globs	2d49975e4f2b802d
+1	15	0	C:/Users/Admin/CLionProjects/Saper/cmake-build-debug/CMakeFiles/cmake.verify_globs	2d49975e4f2b802d
+2	310	7042285625362558	CMakeFiles/main.dir/src/main.cpp.obj	117aa45ee68580ec
+310	388	7042285626102029	main.exe	fdfc5e070c645aad
+1	16	0	C:/Users/Admin/CLionProjects/Saper/cmake-build-debug/CMakeFiles/cmake.verify_globs	2d49975e4f2b802d
+2	16	0	C:/Users/Admin/CLionProjects/Saper/cmake-build-debug/CMakeFiles/cmake.verify_globs	2d49975e4f2b802d
+2	326	7042286687275006	CMakeFiles/main.dir/src/main.cpp.obj	117aa45ee68580ec
+327	402	7042286687983909	main.exe	fdfc5e070c645aad
+1	17	0	C:/Users/Admin/CLionProjects/Saper/cmake-build-debug/CMakeFiles/cmake.verify_globs	2d49975e4f2b802d

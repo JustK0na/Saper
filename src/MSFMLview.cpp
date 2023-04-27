@@ -18,9 +18,8 @@ MSBoardSFMLView::MSBoardSFMLView(MinesweeperBoard& m)
 }
 void MSBoardSFMLView::draw() const
 {
-  sf::RectangleShape rect(sf::Vector2f(300,300));
-  rect.setFillColor(sf::Color(124,90,0,255));
-  rect.setPosition(10.f,50.f);
-  std::cout<<"drawing...\n";
+    sf::CircleShape shape(50);
+    shape.setFillColor(sf::Color(100, 250, 50));
+    std::cout<<"drawing...\n";
   
 }

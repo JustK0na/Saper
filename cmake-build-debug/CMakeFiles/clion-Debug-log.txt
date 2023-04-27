@@ -1,0 +1,11 @@
+"C:\Program Files\JetBrains\CLion 2023.1.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.1.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\Admin\CLionProjects\Saper -B C:\Users\Admin\CLionProjects\Saper\cmake-build-debug
+-- The CXX compiler identification is GNU 7.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/mingw32/bin/c++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found SFML 2.5.1 in C:/Users/Admin/SFML-2.5.1/lib/cmake/SFML
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Admin/CLionProjects/Saper/cmake-build-debug
