@@ -22,7 +22,7 @@
   Board[0][2].hasMine=1;
   Board[0][2].hasFlag=1;
 }*/
-MinesweeperBoard::MinesweeperBoard(int collumns, int rows, GameMode method)
+MinesweeperBoard::MinesweeperBoard(int rows, int collumns, GameMode method)
 {
     width = collumns;
     height = rows;

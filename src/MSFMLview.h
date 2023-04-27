@@ -17,7 +17,10 @@ class MSBoardSFMLView
   public:
     MSBoardSFMLView(MinesweeperBoard &board);
     void present(sf::RenderWindow &win) const;
-    sf::RectangleShape createPole(float x, float y) const;
+    sf::Sprite createPole(float x, float y) const;
+    sf::Sprite createPolePuste(float x, float y) const;
+    sf::Sprite createPoleFlaga(float x, float y) const;
+    sf::Sprite createPoleBomba(float x, float y) const;
 };
 
 

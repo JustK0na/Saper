@@ -38,8 +38,16 @@ int main()
     win.setVerticalSyncEnabled(false);
     win.setFramerateLimit(12);
 
+    m.revealField(12,2);
+    m.revealField(13,2);
+    m.revealField(14,2);
+    m.revealField(15,2);
 
+    std::cout<<"|:"<<m.getFieldInfo(12,2)<<"\t"<<m.getFieldInfo(13,2)<<"\t"<<m.getFieldInfo(14,2)<<"\t"<<m.getFieldInfo(15,2)<<"\t:|";
 
+    m.toggleFlag(10, 5);
+    m.toggleFlag(7, 12);
+    m.toggleFlag(5, 9);
 
     while (win.isOpen()) {
         sf::Event event;
@@ -47,7 +55,7 @@ int main()
             if (event.type == sf::Event::Closed)
                 win.close();
         }
-        win.clear(sf::Color::Black);
+        win.clear(sf::Color(188,175,189));
         window.present(win);
         win.display();
     }
