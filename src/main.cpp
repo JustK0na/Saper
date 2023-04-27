@@ -17,17 +17,29 @@
 #include <stdlib.h>
 #include <time.h>
 
+
+#define WIELNAPOLE 25
+#define MARGINES 20
+#define WIELGUI 100
+
+
 int main()
 {
-    sf::RenderWindow win(sf::VideoMode(800, 600), "Saper");
-    win.setVerticalSyncEnabled(false);
-    win.setFramerateLimit(2);
 
-    MinesweeperBoard m { 2, 2, EASY };
+
+
+    MinesweeperBoard m { 20, 20, DEBUG };
     m.debug_display();
     MSBoardTextView view(m);
     MSTextController ctrl(m, view);
     MSBoardSFMLView window(m);
+
+    sf::RenderWindow win(sf::VideoMode(m.getBoardWidth()*WIELNAPOLE+MARGINES*2, m.getBoardHeight()*WIELNAPOLE+MARGINES*2+WIELGUI), "Saper");
+    win.setVerticalSyncEnabled(false);
+    win.setFramerateLimit(12);
+
+
+
 
     while (win.isOpen()) {
         sf::Event event;
@@ -35,8 +47,8 @@ int main()
             if (event.type == sf::Event::Closed)
                 win.close();
         }
-        win.clear(sf::Color(0, 0, 0, 255));
-        window.draw();
+        win.clear(sf::Color::Black);
+        window.present(win);
         win.display();
     }
 

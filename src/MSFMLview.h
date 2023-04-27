@@ -16,7 +16,8 @@ class MSBoardSFMLView
   MinesweeperBoard & board;
   public:
     MSBoardSFMLView(MinesweeperBoard &board);
-    void draw() const;
+    void present(sf::RenderWindow &win) const;
+    sf::RectangleShape createPole(float x, float y) const;
 };
 
 

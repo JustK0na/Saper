@@ -11,6 +11,7 @@ MSBoardTextView::MSBoardTextView(MinesweeperBoard& m)
     : board(m)
 {
 }
+
 void MSBoardTextView::display() const
 {
     std::cout << "\n";
