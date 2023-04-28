@@ -28,27 +28,27 @@ int main()
 
 
 
-    MinesweeperBoard m { 3, 13, HARD };
+    MinesweeperBoard m { 8, 13, DEBUG};
     m.debug_display();
     MSBoardTextView view(m);
     MSTextController ctrl(m, view);
     MSBoardSFMLView window(m);
 
-    sf::RenderWindow win(sf::VideoMode(m.getBoardWidth()*WIELNAPOLE+MARGINES*2, m.getBoardHeight()*WIELNAPOLE+MARGINES*2+WIELGUI), "Saper");
+    sf::RenderWindow win(sf::VideoMode(m.getBoardHeight()*WIELNAPOLE+MARGINES*2, m.getBoardWidth()*WIELNAPOLE+MARGINES*2+WIELGUI), "Saper");
     win.setVerticalSyncEnabled(false);
     win.setFramerateLimit(12);
 
-  /*  m.revealField(1,2);
+    m.revealField(1,2);
     m.revealField(4,2);
     m.revealField(2,4);
     m.revealField(10,0);
-*/
-    std::cout<<"|:"<<m.getFieldInfo(1,2)<<"\t"<<m.getFieldInfo(4,2)<<"\t"<<m.getFieldInfo(2,4)<<"\t"<<m.getFieldInfo(10,0)<<":|\n";
+
+    std::cout<<"|:"<<m.getFieldInfo(1,2)<<"\t"<<m.getFieldInfo(2,10)<<"\t"<<m.getFieldInfo(2,4)<<"\t"<<m.getFieldInfo(1,10)<<":|\n";
     std::cout<<"|:"<<m.getBoardWidth()<<"\t"<<m.getBoardHeight() << ":|";
 
-   /* m.toggleFlag(10, 5);
+    m.toggleFlag(10, 5);
     m.toggleFlag(7, 12);
-    m.toggleFlag(5, 9);*/
+    m.toggleFlag(5, 9);
 
     while (win.isOpen()) {
         sf::Event event;

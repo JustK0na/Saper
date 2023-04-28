@@ -171,16 +171,16 @@ sf::Sprite MSBoardSFMLView::createPole8(float x, float y) const
 void MSBoardSFMLView::present(sf::RenderWindow &win) const
 {
 
-    for(int i=0; i<board.getBoardWidth(); i++)
+    for(int i=0; i<board.getBoardHeight(); i++)
     {
         std::cout<<"\n";
-        for (int j = 0; j < board.getBoardHeight(); j++) {
+        for (int j = 0; j < board.getBoardWidth(); j++) {
             std::cout<<i<<" "<<j<<"\t";
             if(board.getFieldInfo(i, j) == ' ')
             {
                 win.draw(createPolePuste(i*WIELNAPOLE, j*WIELNAPOLE));
             }
-            if (board.getFieldInfo(j, i) == '_')
+            if (board.getFieldInfo(i, j) == '_')
             {
                 win.draw(createPole(i*WIELNAPOLE,j*WIELNAPOLE));
             }
