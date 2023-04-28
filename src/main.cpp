@@ -38,12 +38,12 @@ int main()
     win.setVerticalSyncEnabled(false);
     win.setFramerateLimit(12);
 
-    m.revealField(12,2);
-    m.revealField(13,2);
-    m.revealField(14,2);
-    m.revealField(15,2);
+    m.revealField(1,2);
+    m.revealField(4,2);
+    m.revealField(2,4);
+    m.revealField(10,0);
 
-    std::cout<<"|:"<<m.getFieldInfo(12,2)<<"\t"<<m.getFieldInfo(13,2)<<"\t"<<m.getFieldInfo(14,2)<<"\t"<<m.getFieldInfo(15,2)<<"\t:|";
+    std::cout<<"|:"<<m.getFieldInfo(1,2)<<"\t"<<m.getFieldInfo(4,2)<<"\t"<<m.getFieldInfo(2,4)<<"\t"<<m.getFieldInfo(10,0)<<"\t:|";
 
     m.toggleFlag(10, 5);
     m.toggleFlag(7, 12);

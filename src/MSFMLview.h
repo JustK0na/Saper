@@ -21,6 +21,14 @@ class MSBoardSFMLView
     sf::Sprite createPolePuste(float x, float y) const;
     sf::Sprite createPoleFlaga(float x, float y) const;
     sf::Sprite createPoleBomba(float x, float y) const;
+    sf::Sprite createPole1(float x, float y) const;
+    sf::Sprite createPole2(float x, float y) const;
+    sf::Sprite createPole3(float x, float y) const;
+    sf::Sprite createPole4(float x, float y) const;
+    sf::Sprite createPole5(float x, float y) const;
+    sf::Sprite createPole6(float x, float y) const;
+    sf::Sprite createPole7(float x, float y) const;
+    sf::Sprite createPole8(float x, float y) const;
 };
 
 
