@@ -24,8 +24,8 @@
 }*/
 MinesweeperBoard::MinesweeperBoard(int rows, int collumns, GameMode method)
 {
-    width = collumns;
     height = rows;
+    width = collumns;
     mode = method;
     clear_board();
     bomb = iloscBomb(mode);

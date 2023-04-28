@@ -28,7 +28,7 @@ int main()
 
 
 
-    MinesweeperBoard m { 20, 20, DEBUG };
+    MinesweeperBoard m { 3, 13, HARD };
     m.debug_display();
     MSBoardTextView view(m);
     MSTextController ctrl(m, view);
@@ -38,16 +38,17 @@ int main()
     win.setVerticalSyncEnabled(false);
     win.setFramerateLimit(12);
 
-    m.revealField(1,2);
+  /*  m.revealField(1,2);
     m.revealField(4,2);
     m.revealField(2,4);
     m.revealField(10,0);
+*/
+    std::cout<<"|:"<<m.getFieldInfo(1,2)<<"\t"<<m.getFieldInfo(4,2)<<"\t"<<m.getFieldInfo(2,4)<<"\t"<<m.getFieldInfo(10,0)<<":|\n";
+    std::cout<<"|:"<<m.getBoardWidth()<<"\t"<<m.getBoardHeight() << ":|";
 
-    std::cout<<"|:"<<m.getFieldInfo(1,2)<<"\t"<<m.getFieldInfo(4,2)<<"\t"<<m.getFieldInfo(2,4)<<"\t"<<m.getFieldInfo(10,0)<<"\t:|";
-
-    m.toggleFlag(10, 5);
+   /* m.toggleFlag(10, 5);
     m.toggleFlag(7, 12);
-    m.toggleFlag(5, 9);
+    m.toggleFlag(5, 9);*/
 
     while (win.isOpen()) {
         sf::Event event;
