@@ -167,6 +167,7 @@ void MinesweeperBoard::revealField(int row, int col)
         {
             Board[row][col].isRevealed = 1;
             state = FINISHED_LOSS;
+	    std::cout<<"PRZEGRALES";
             return;
         }
         if (mode == DEBUG) {

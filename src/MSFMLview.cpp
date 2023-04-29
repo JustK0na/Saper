@@ -16,6 +16,7 @@
 
 #define WIELNAPOLE 25
 #define MARGINES 20
+#define WIELGUIHEIGHT 300
 #define WIELGUI 100
 
 
@@ -173,9 +174,7 @@ void MSBoardSFMLView::present(sf::RenderWindow &win) const
 
     for(int i=0; i<board.getBoardHeight(); i++)
     {
-        std::cout<<"\n";
-        for (int j = 0; j < board.getBoardWidth(); j++) {
-            std::cout<<i<<" "<<j<<"\t";
+       for (int j = 0; j < board.getBoardWidth(); j++) {
             if(board.getFieldInfo(i, j) == ' ')
             {
                 win.draw(createPolePuste(i*WIELNAPOLE, j*WIELNAPOLE));

@@ -1,0 +1,16 @@
+#include <cstdio>
+#include <cstdlib>
+#include <cwchar>
+#include <iostream>
+#include <SFML/Graphics.hpp>
+
+#include <stdlib.h>
+#include "MSSFMLController.h"
+#MinewsweeperBoard.h"
+
+
+MSSFMLController::MSSFMLController(MinesweeperBoard &m)
+  :board(m)
+{
+}
+
