@@ -31,7 +31,7 @@ int main()
 
 
 
-  MinesweeperBoard m { 20,20, NORMAL};
+  MinesweeperBoard m { 5,5, NORMAL};
     m.debug_display();
     MSBoardTextView view(m);
     MSTextController ctrl(m, view);

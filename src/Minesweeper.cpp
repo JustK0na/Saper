@@ -94,19 +94,24 @@ bool MinesweeperBoard::hasFlag(int row, int col) const
 }
 void MinesweeperBoard::WIN_check()
 {
-    std::cout << "\n SPrawdzam czy wygrales" << getGameState();
+   
+    int a=0;
     for (int i = 0; i <= getBoardWidth(); i++) {
-        for (int j = 0; j <= getBoardHeight(); j++) {
-            if (Board[i][j].isRevealed == 0 && Board[i][j].hasFlag == 0) {
-                std::cout << i << "\t" << j << "\n"
-                          << Board[i][j].isRevealed << " " << Board[i][j].hasFlag << "\n\n";
-                return;
-            }
-        }
+      for (int j = 0; j <= getBoardHeight(); j++) {
+	if(Board[i][j].isRevealed==1)
+	  {
+	    a=a+1;
+	  }
+	if(a==(getBoardWidth()*getBoardHeight()-getMineCount()))
+	  {
+	    state = FINISHED_WIN;
+	    return;
+	  }
+      }
+      
     }
-    state = FINISHED_WIN;
-    std::cout << "\n wygrales!";
-    return;
+    return ;
+    
 }
 GameState MinesweeperBoard::getGameState() const
 {

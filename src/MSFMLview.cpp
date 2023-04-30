@@ -180,10 +180,24 @@ void MSBoardSFMLView::present(sf::RenderWindow &win) const
       text.setCharacterSize(24);
       text.setString("Game Over");
       text.setFillColor(sf::Color(201, 50, 76));
-      text.setPosition(MARGINES+((board.getBoardWidth()/2)*WIELNAPOLE-3*WIELNAPOLE),(WIELGUI-2*WIELNAPOLE));
+      text.setPosition(MARGINES+((board.getBoardWidth()/2)*WIELNAPOLE-2*WIELNAPOLE),(WIELGUI-2*WIELNAPOLE));
       win.draw(text);/*
 		      Srodek po 3 kratkach*/
      
+    }
+  if(board.getGameState() == FINISHED_WIN)
+    {
+      sf::Font font;
+      sf::Text text;
+      font.loadFromFile("../src/Graphics/Font/PixelCode.otf");
+      text.setFont(font);
+      text.setCharacterSize(24);
+      text.setString("You Win!");
+      text.setFillColor(sf::Color(11, 135, 87));
+      text.setPosition(MARGINES+((board.getBoardWidth()/2)*WIELNAPOLE-2*WIELNAPOLE),(WIELGUI-2*WIELNAPOLE));
+      win.draw(text);
+     
+      
     }
   for(int i=0; i<board.getBoardHeight(); i++)
 	{
