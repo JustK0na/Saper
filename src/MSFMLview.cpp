@@ -173,9 +173,16 @@ void MSBoardSFMLView::present(sf::RenderWindow &win) const
 {
   if(board.getGameState() == FINISHED_LOSS)
     {
-      sf::CircleShape shape(50);
-      shape.setFillColor(sf::Color::Black);
-      win.draw(shape);
+      sf::Font font;
+      sf::Text text;
+      font.loadFromFile("../src/Graphics/Font/PixelCode.otf");
+      text.setFont(font);
+      text.setCharacterSize(24);
+      text.setString("Game Over");
+      text.setFillColor(sf::Color(201, 50, 76));
+      text.setPosition(MARGINES+((board.getBoardWidth()/2)*WIELNAPOLE-3*WIELNAPOLE),(WIELGUI-2*WIELNAPOLE));
+      win.draw(text);/*
+		      Srodek po 3 kratkach*/
      
     }
   for(int i=0; i<board.getBoardHeight(); i++)
