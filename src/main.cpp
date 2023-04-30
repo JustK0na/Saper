@@ -31,7 +31,7 @@ int main()
 
 
 
-  MinesweeperBoard m { 12,12, DEBUG};
+  MinesweeperBoard m { 12,12, NORMAL};
     m.debug_display();
     MSBoardTextView view(m);
     MSTextController ctrl(m, view);
@@ -61,7 +61,6 @@ int main()
         
         win.clear(sf::Color(188,175,189));
         window.present(win);
-
         win.display();
     }
 

@@ -171,61 +171,67 @@ sf::Sprite MSBoardSFMLView::createPole8(float x, float y) const
 }
 void MSBoardSFMLView::present(sf::RenderWindow &win) const
 {
-
-    for(int i=0; i<board.getBoardHeight(); i++)
+  if(board.getGameState() == FINISHED_LOSS)
     {
-       for (int j = 0; j < board.getBoardWidth(); j++) {
+      sf::CircleShape shape(50);
+      shape.setFillColor(sf::Color::Black);
+      win.draw(shape);
+     
+    }
+  for(int i=0; i<board.getBoardHeight(); i++)
+	{
+	  for (int j = 0; j < board.getBoardWidth(); j++) {
             if(board.getFieldInfo(i, j) == ' ')
-            {
-                win.draw(createPolePuste(i*WIELNAPOLE, j*WIELNAPOLE));
-            }
+	      {
+                win.draw(createPolePuste(j*WIELNAPOLE, i*WIELNAPOLE));
+	      }
             if (board.getFieldInfo(i, j) == '_')
-            {
-                win.draw(createPole(i*WIELNAPOLE,j*WIELNAPOLE));
-            }
+	      {
+                win.draw(createPole(j*WIELNAPOLE,i*WIELNAPOLE));
+	      }
             if(board.getFieldInfo(i, j) == 'F')
-            {
-                win.draw(createPoleFlaga(i*WIELNAPOLE,j*WIELNAPOLE));
-            }
+	      {
+                win.draw(createPoleFlaga(j*WIELNAPOLE,i*WIELNAPOLE));
+	      }
             if(board.getFieldInfo(i,j) == 'x')
-            {
-                win.draw(createPoleBomba(i*WIELNAPOLE,j*WIELNAPOLE));
-            }
+	      {
+                win.draw(createPoleBomba(j*WIELNAPOLE,i*WIELNAPOLE));
+	      }
             else 
-            {
+	      {
                 switch (board.getFieldInfo(i,j)) {
                 case '1':
-                    win.draw(createPole1(i*WIELNAPOLE,j*WIELNAPOLE));
-                    break;
+		  win.draw(createPole1(j*WIELNAPOLE,i*WIELNAPOLE));
+		  break;
                 case '2':
-                    win.draw(createPole2(i*WIELNAPOLE,j*WIELNAPOLE));
-                    break;
+		  win.draw(createPole2(j*WIELNAPOLE,i*WIELNAPOLE));
+		  break;
                 case '3':
-                    win.draw(createPole3(i*WIELNAPOLE,j*WIELNAPOLE));
-                    break;
+		  win.draw(createPole3(j*WIELNAPOLE,i*WIELNAPOLE));
+		  break;
                 case '4':
-                    win.draw(createPole4(i*WIELNAPOLE,j*WIELNAPOLE));
-                    break ;
+		  win.draw(createPole4(j*WIELNAPOLE,i*WIELNAPOLE));
+		  break ;
                 case '5':
-                    win.draw(createPole5(i*WIELNAPOLE,j*WIELNAPOLE));
-                    break ;
+		  win.draw(createPole5(j*WIELNAPOLE,i*WIELNAPOLE));
+		  break ;
                 case '6':
-                    win.draw(createPole6(i*WIELNAPOLE,j*WIELNAPOLE));
-                    break ;
+		  win.draw(createPole6(j*WIELNAPOLE,i*WIELNAPOLE));
+		  break ;
                 case '7':
-                    win.draw(createPole7(i*WIELNAPOLE,j*WIELNAPOLE));
-                    break ;
+		  win.draw(createPole7(j*WIELNAPOLE,i*WIELNAPOLE));
+		  break ;
                 case '8':
-                    win.draw(createPole8(i*WIELNAPOLE,j*WIELNAPOLE));
-                    break ;
-
+		  win.draw(createPole8(j*WIELNAPOLE,i*WIELNAPOLE));
+		  break ;
+		  
                 }
-            }
-
-        }
-    }
-
-
-
+	      }
+	    
+	  }
+	}
+  
+  
+  
   
 }

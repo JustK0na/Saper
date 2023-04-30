@@ -32,14 +32,14 @@ void MSSFMLController::play(sf::RenderWindow &win) const
 	    int x,y;
 	    x=((event.mouseButton.x-20)/25);
 	    y=((event.mouseButton.y-100)/25);
-	    board.revealField(x, y);
+	    board.revealField(y, x);
 	  }
 	else if(event.mouseButton.button == sf::Mouse::Right)
 	  {
 	    int x,y;
 	    x=((event.mouseButton.x-20)/25);
 	    y=((event.mouseButton.y-100)/25);
-	    board.toggleFlag(x, y);
+	    board.toggleFlag(y, x);
 	  }
       } 
     
