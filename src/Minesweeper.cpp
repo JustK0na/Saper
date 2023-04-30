@@ -96,6 +96,7 @@ void MinesweeperBoard::WIN_check()
 {
    
     int a=0;
+    std::cout<<"\n Min: "<<getMineCount()<<"\tIlosc pol: "<<(getBoardWidth()*getBoardHeight());
     for (int i = 0; i <= getBoardWidth(); i++) {
       for (int j = 0; j <= getBoardHeight(); j++) {
 	if(Board[i][j].isRevealed==1)
@@ -129,12 +130,12 @@ void MinesweeperBoard::toggleFlag(int row, int col)
 
     if (Board[row][col].hasFlag == 0) {
         Board[row][col].hasFlag = 1;
-        bomb--;
+	// bomb--;
         return;
     }
 
     Board[row][col].hasFlag = 0;
-    bomb++;
+    // bomb++;
 }
 void MinesweeperBoard::move_mine(int row, int col)
 {

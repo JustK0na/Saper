@@ -180,7 +180,7 @@ void MSBoardSFMLView::present(sf::RenderWindow &win) const
       text.setCharacterSize(24);
       text.setString("Game Over");
       text.setFillColor(sf::Color(201, 50, 76));
-      text.setPosition(MARGINES+((board.getBoardWidth()/2)*WIELNAPOLE-2*WIELNAPOLE),(WIELGUI-2*WIELNAPOLE));
+      text.setPosition(MARGINES+((board.getBoardWidth()/2)*WIELNAPOLE-3*WIELNAPOLE),(WIELGUI-2*WIELNAPOLE));
       win.draw(text);/*
 		      Srodek po 3 kratkach*/
      
@@ -194,7 +194,7 @@ void MSBoardSFMLView::present(sf::RenderWindow &win) const
       text.setCharacterSize(24);
       text.setString("You Win!");
       text.setFillColor(sf::Color(11, 135, 87));
-      text.setPosition(MARGINES+((board.getBoardWidth()/2)*WIELNAPOLE-2*WIELNAPOLE),(WIELGUI-2*WIELNAPOLE));
+      text.setPosition(MARGINES+((board.getBoardWidth()/2)*WIELNAPOLE-3*WIELNAPOLE),(WIELGUI-2*WIELNAPOLE));
       win.draw(text);
      
       
