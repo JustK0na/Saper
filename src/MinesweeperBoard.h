@@ -24,21 +24,22 @@ struct Field {
 };
 
 class MinesweeperBoard {
-    Field Board[100][100];
-    int width;
-    int height;
-    int bomb;
-    GameState state;
-    GameMode mode;
-    bool first_move;
-    //  MinesweeperBoard();
-    void clear_board();
-    void minowanie(GameMode mode);
-    int iloscBomb(GameMode mode) const;
-    bool is_NOT_on_board(int row, int col) const;
-    void move_mine(int row, int col);
-    bool is_first_move();
-    void WIN_check();
+  Field Board[100][100];
+  int width;
+  int height;
+  int bomb;
+  GameState state;
+  GameMode mode;
+  bool first_move;
+  //  MinesweeperBoard();
+  void clear_board();
+  void minowanie(GameMode mode);
+  int iloscBomb(GameMode mode) const;
+  bool is_NOT_on_board(int row, int col) const;
+  void move_mine(int row, int col);
+  bool is_first_move();
+  void WIN_check();
+  void openEmpty(int x, int y);
 
 
   
