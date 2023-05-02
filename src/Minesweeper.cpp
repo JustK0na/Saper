@@ -67,19 +67,20 @@ void MinesweeperBoard::clear_board()
 }
 void MinesweeperBoard::openEmpty(int row, int col)
 {
+  
+  
   for(int i=(row-1); i<=(row+1); i++)
-    {
-      for(int j=(col-1); j<=(col+1); j++)
 	{
-	   if(countMines(i,j)==0)
-	   {
-	      std::cout<<"\nRzad klikniety: "<<row<<"Kolumna kliknieta: "<<col;
-	      std::cout<<"\nPuste: "<<i<<"     "<<j<<"\n";
+	  for(int j=(col-1); j<=(col+1); j++)
+	    {
+	      //  if(countMines(i,j)==0){
+		//std::cout<<"\nRzad klikniety: "<<row<<"Kolumna kliknieta: "<<col;
+		//std::cout<<"\nPuste: "<<i<<"     "<<j<<"\n";
 	      revealField(i,j);
-	   }
+	      //   }
+	    }
 	}
-    }
-
+  
       
     
 }
@@ -185,7 +186,7 @@ void MinesweeperBoard::revealField(int row, int col)
         Board[row][col].isRevealed = 1;
         first_move = 1;
         WIN_check();
-	if(getFieldInfo(row, col)==' ')
+	if(countMines(row, col)==0)
 	  openEmpty(row, col);
         return;
     }
